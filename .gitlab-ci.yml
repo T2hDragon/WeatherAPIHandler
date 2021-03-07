@@ -1,0 +1,49 @@
+stages:
+  - build
+  - verify
+
+before_script:
+  - cd WeatherProject
+
+build:
+  image: maven:3.6.3-jdk-11
+  stage: build
+  script:
+    - mvn compile
+
+api_test:
+  image: maven:3.6.3-jdk-11
+  stage: verify
+  script:
+    - mvn -Dtest=OpenWeatherMapTest test
+    - mvn -Dtest=WeatherApiTest test
+
+mock_test:
+  image: maven:3.6.3-jdk-11
+  stage: verify
+  script:
+    - mvn -Dtest=WeatherReportDetailsMockTest test
+    - mvn -Dtest=CurrentWeatherReportMockTest test
+    - mvn -Dtest=ForecastReportMockTest test
+
+unit_test:
+  image: maven:3.6.3-jdk-11
+  stage: verify
+  script:
+    - mvn -Dtest=WeatherReportDetailsTest test
+    - mvn -Dtest=CurrentWeatherReportTest test
+    - mvn -Dtest=ForecastReportTest test
+    - mvn -Dtest=CompleteWeatherReportTest test
+
+io_test:
+  image: maven:3.6.3-jdk-11
+  stage: verify
+  script:
+    - mvn -Dtest=ReadFromFileTest test
+    - mvn -Dtest=WriteToFileTest test
+
+end_to_end_test:
+  image: maven:3.6.3-jdk-11
+  stage: verify
+  script:
+    - mvn -Dtest=MainProgramTest test

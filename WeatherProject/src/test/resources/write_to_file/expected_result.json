@@ -1,0 +1,29 @@
+{
+  "weatherReportDetails" : {
+    "city" : "Tallinn",
+    "coordinates" : "59.44,24.75",
+    "temperatureUnit" : "Celsius"
+  },
+  "currentWeatherReport" : {
+    "date" : "2019-09-30",
+    "temperature" : -5.0,
+    "humidity" : 75,
+    "pressure" : 985
+  },
+  "forecastReport" : [ {
+    "date" : "2019-10-01",
+    "temperature" : -5.0,
+    "humidity" : 75,
+    "pressure" : 985
+  }, {
+    "date" : "2019-10-02",
+    "temperature" : -5.0,
+    "humidity" : 75,
+    "pressure" : 985
+  }, {
+    "date" : "2019-10-03",
+    "temperature" : -5.0,
+    "humidity" : 75,
+    "pressure" : 985
+  } ]
+}
